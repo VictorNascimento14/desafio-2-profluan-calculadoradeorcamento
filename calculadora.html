@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Calculadora de Orçamento</title>
+    <style>
+        body { font-family: Arial, sans-serif; margin: 40px; }
+        .servico { margin-bottom: 10px; }
+        #total { font-size: 1.5em; margin-top: 20px; font-weight: bold; }
+    </style>
+</head>
+<body>
+    <h1>Calculadora de Orçamento</h1>
+    <div class="servico">
+        <input type="checkbox" id="servico1" value="100">
+        <label for="servico1">Serviço 1 - R$ 100,00</label>
+    </div>
+    <div class="servico">
+        <input type="checkbox" id="servico2" value="250">
+        <label for="servico2">Serviço 2 - R$ 250,00</label>
+    </div>
+    <div class="servico">
+        <input type="checkbox" id="servico3" value="400">
+        <label for="servico3">Serviço 3 - R$ 400,00</label>
+    </div>
+    <div id="total">Total: R$ 0,00</div>
+    <script>
+        const checkboxes = document.querySelectorAll('input[type="checkbox"]');
+        const totalDiv = document.getElementById('total');
+        function atualizarTotal() {
+            let total = 0;
+            checkboxes.forEach(cb => {
+                if (cb.checked) {
+                    total += Number(cb.value);
+                }
+            });
+            totalDiv.textContent = 'Total: ' + total.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' });
+        }
+        checkboxes.forEach(cb => cb.addEventListener('change', atualizarTotal));
+    </script>
+</body>
+</html>
