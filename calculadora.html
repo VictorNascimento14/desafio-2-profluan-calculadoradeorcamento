@@ -5,26 +5,88 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Calculadora de Orçamento</title>
     <style>
-        body { font-family: Arial, sans-serif; margin: 40px; }
-        .servico { margin-bottom: 10px; }
-        #total { font-size: 1.5em; margin-top: 20px; font-weight: bold; }
+        body {
+            font-family: Arial, sans-serif;
+            min-height: 100vh;
+            margin: 0;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(135deg, #6dd5ed 0%, #2193b0 100%);
+        }
+        .container-form {
+            background: #fff;
+            border-radius: 16px;
+            box-shadow: 0 8px 32px rgba(33, 147, 176, 0.18);
+            padding: 32px 28px 24px 28px;
+            max-width: 340px;
+            width: 100%;
+            margin: 0 auto;
+        }
+        .erro {
+            color: #d8000c;
+            background: #ffd2d2;
+            border-radius: 6px;
+            padding: 8px;
+            margin-top: 10px;
+            font-size: 0.98em;
+        }
+        label {
+            display: block;
+            margin-bottom: 6px;
+            font-weight: 500;
+            color: #2193b0;
+        }
+        input[type="checkbox"] {
+            margin-right: 8px;
+            accent-color: #2193b0;
+        }
+        .servico {
+            margin-bottom: 16px;
+        }
+        #total {
+            font-size: 1.2em;
+            margin-top: 18px;
+            font-weight: bold;
+            color: #2193b0;
+            text-align: center;
+        }
+        button {
+            padding: 10px 20px;
+            background: linear-gradient(90deg, #2193b0 0%, #6dd5ed 100%);
+            color: #fff;
+            border: none;
+            border-radius: 6px;
+            font-size: 1em;
+            cursor: pointer;
+            font-weight: 600;
+            box-shadow: 0 2px 8px rgba(33, 147, 176, 0.10);
+            transition: background 0.2s;
+            width: 100%;
+            margin-top: 10px;
+        }
+        button:hover {
+            background: linear-gradient(90deg, #6dd5ed 0%, #2193b0 100%);
+        }
     </style>
 </head>
 <body>
-    <h1>Calculadora de Orçamento</h1>
-    <div class="servico">
-        <input type="checkbox" id="servico1" value="100">
-        <label for="servico1">Serviço 1 - R$ 100,00</label>
+    <div class="container-form">
+        <h1 style="text-align:center; color:#2193b0; margin-bottom: 24px; font-size:1.3em;">Calculadora de Orçamento</h1>
+        <div class="servico">
+            <input type="checkbox" id="servico1" value="100">
+            <label for="servico1">Serviço 1 - R$ 100,00</label>
+        </div>
+        <div class="servico">
+            <input type="checkbox" id="servico2" value="250">
+            <label for="servico2">Serviço 2 - R$ 250,00</label>
+        </div>
+        <div class="servico">
+            <input type="checkbox" id="servico3" value="400">
+            <label for="servico3">Serviço 3 - R$ 400,00</label>
+        </div>
+        <div id="total">Total: R$ 0,00</div>
     </div>
-    <div class="servico">
-        <input type="checkbox" id="servico2" value="250">
-        <label for="servico2">Serviço 2 - R$ 250,00</label>
-    </div>
-    <div class="servico">
-        <input type="checkbox" id="servico3" value="400">
-        <label for="servico3">Serviço 3 - R$ 400,00</label>
-    </div>
-    <div id="total">Total: R$ 0,00</div>
     <script>
         const checkboxes = document.querySelectorAll('input[type="checkbox"]');
         const totalDiv = document.getElementById('total');
